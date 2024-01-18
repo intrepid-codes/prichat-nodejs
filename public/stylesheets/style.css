@@ -1,0 +1,475 @@
+@font-face {
+  font-family: Gilroy;
+  src: url('https://intrepid-codes.github.io/prichat/Gilroy-Bold.ttf');
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Gilroy;
+    font-weight: 900;
+    scroll-behavior: smooth;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+}
+#page1{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+#glow1{
+  position: fixed;
+  right: 0%;
+  bottom: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: .3;
+  background-color: green;
+  -webkit-filter: blur(20px) saturate(30);
+  filter: blur(20px) saturate(30);
+  z-index: -1;
+}
+#glow2{
+  position: fixed;
+  left: -10%;
+  bottom: -40%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  opacity: .4;
+  -webkit-filter: blur(35px) saturate(10);
+          filter: blur(35px) saturate(10);
+  background-color: #04aa6d;
+  z-index: -1;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    padding: 0rem 4rem;
+    background-color: #dadada;
+    /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); */
+}
+#menu-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    position: relative;
+    transition: all 1s ease-in-out;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+  }
+  .line1{
+    position: absolute;
+    height: 2px;
+    width: 35px;
+    background-color: #000;
+    margin-bottom: 8px;
+    transition: all .4s ease-in-out;
+  }
+  .line2{
+    position: absolute;
+    height: 2px;
+    width: 35px;
+    background-color: #000;
+    margin-top: 8px;
+    transition: all .4s ease-in-out;
+  }
+  #menu-button::after{
+    content: '';
+    position: relative;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: -100%;
+    background-color: #000;
+    transition: cubic-bezier(0.86, 0, 0.07, 1) .6s;
+  }
+  #menu-button:hover .line1, #menu-button:hover .line2{
+    background-color: #fff;
+    z-index: 99;
+  }
+  #menu-button:hover:after{
+    bottom: 0;
+  }
+  .rotate{
+    transform: rotate(-45deg);
+    margin: 8px;
+  }
+  .rotates{
+    transform: rotate(45deg);
+    margin: 8px;
+  }
+  #brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #brand img{
+    height: auto;
+    width: 60px;
+    object-fit: cover;
+    margin-top: .5rem;
+    object-position: center;
+    z-index: 100;
+  }
+  #navline{
+    height: 2rem;
+    width: .1rem;
+    background-color: #000;
+    margin: 0rem .6rem;
+  }
+  #portfolio-area{
+    height: calc(100% - 70px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #portfolio-area img{
+    position: relative;
+    height: 60rem;
+    opacity: .3;
+    width: auto;
+    -webkit-filter: blur(5px);
+  }
+  #portfolio-area #portfolio-text{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 4rem;
+    flex-direction: column;
+  }
+  #portfolio-area div h1{
+    font-size: 5rem;
+    display: block;
+
+    & span{
+      color: #04aa6d;
+    }
+  }
+  #buttons button span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 8rem;
+    transform: translateY(-100%);
+    transition: cubic-bezier(0.86, 0, 0.07, 1) .6s;
+  }
+  #buttons button:hover>span{
+    transform: translateY(0);
+  }
+  #buttons button{
+    margin: 2rem 1rem;
+    height: 3rem;
+    width: 8rem;
+    border: none;
+    background-color: #04aa6d;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    border-radius: 15rem;
+    overflow: hidden;
+  }
+  #buttons button::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    transition: cubic-bezier(0.86, 0, 0.07, 1) .6s;
+    z-index: -1;
+  }
+  #buttons button:hover:after{
+    bottom: 0;
+  }
+  #menu-opener{
+    position: absolute;
+    top: 70px;
+    right: -100%;
+    height: 100%;
+    width: 30%;
+    z-index: 10;
+    background-color: #dadada;
+    display: flex;
+    flex-direction: column;
+    transition: .6s;
+    will-change: transform;
+  }
+  #menu-opener #menuBox{
+    position: absolute;
+    left: 30%;
+    top: 12%;
+  }
+  #linkBox{
+    display: flex;
+    flex-direction: column;
+    font-size: 2.8rem;
+    margin: 2rem 0rem;
+
+
+    & a span{
+      height: auto;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      pointer-events: unset;
+      transition: all .3s ease-in-out;
+    }
+
+
+    & a{
+      height: 60px;
+      width: 100%;
+      text-decoration: none;
+      color: #000;
+      overflow: hidden;
+    }
+
+    & a:hover span{
+      transform: translateY(-100%);
+    }
+  }
+  #login-container{
+    max-width: 500px;
+    margin: auto;
+    margin-top: 3rem;
+  }
+  #login-container h3{
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+  form{
+    padding: 1rem 0rem;
+    display: block;
+  }
+  form label{
+    text-transform: uppercase;
+    font-size: .8rem;
+  }
+  form input{
+    display: block;
+    width: 100%;
+    padding: .8rem 1rem;
+    border: none;
+    margin: .4rem 0rem;
+    border-bottom: 2px solid #04aa6d;
+    outline: none;
+  }
+  form textarea{
+    display: block;
+    width: 100%;
+    padding: .8rem 1rem;
+    border: none;
+    margin: .4rem 0rem;
+    border-bottom: 2px solid #04aa6d;
+    outline: none;
+  }
+  form button{
+    display: block;
+    width: 100%;
+    padding: .8rem 0rem;
+    border: none;
+    border-radius: .3rem;
+    background-color: #04aa6d;
+    color: #fff;
+    margin: 1rem 0rem;
+    cursor: pointer;
+  }
+  ::placeholder{
+    opacity: .6;
+  }
+  #checkbox{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+  #checkbox h5{
+    text-transform: uppercase;
+    font-size: .8rem;
+    cursor: pointer;
+  }
+  #checkbox input{
+    height: 1rem;
+    border: 1px solid #04aa6d !important;
+    border-radius: 50% !important;
+    width: 1rem !important;
+    cursor: pointer;
+  }
+  form a{
+    color: #000;
+    font-size: .8rem;
+  }
+  form hr{
+    margin: 1rem 0rem;
+  }
+  #google-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #google-button{
+    background-color: #fff;
+    height: 3rem;
+    width: 45%;
+    margin: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    border-radius: .6rem;
+  }
+  #google-button i{
+    font-size: 1.2rem;
+  }
+  #register-btn{
+    text-transform: uppercase;
+    font-size: .8rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 940px) {
+
+    html, body{
+      font-size: 64.5%;
+    }
+    nav{
+      padding: 0rem 2rem;
+    }
+    #menu-opener{
+      width: 100%;
+    }
+    .line1{
+      height: 2px;
+      width: 20px;
+    }
+    .line2{
+      height: 2px;
+      width: 20px;
+    }
+    #brand h2{
+      font-size: 2rem;
+    }
+    #buttons{
+      display: flex;
+      width: 100%;
+    }
+    #buttons button span{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 4rem;
+      width: 12rem;
+      transform: translateY(-100%);
+      transition: cubic-bezier(0.86, 0, 0.07, 1) .6s;
+    }
+    #buttons button:hover>span{
+      transform: translateY(0);
+    }
+    #buttons button{
+      margin: 2rem 1rem;
+      height: 4rem;
+      width: 12rem;
+      border: none;
+      background-color: #04aa6d;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      border-radius: 15rem;
+      overflow: hidden;
+    }
+    #buttons button::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      height: 100%;
+      width: 100%;
+      background-color: #000;
+      transition: cubic-bezier(0.86, 0, 0.07, 1) .6s;
+      z-index: -1;
+    }
+    #buttons button:hover:after{
+      bottom: 0;
+    }
+    #menuBox h4{
+      font-size: 1.6rem;
+    }
+    #menu-opener #menuBox{
+      position: absolute;
+      left: 10%;
+      top: 12%;
+    }
+    #linkBox{
+      display: flex;
+
+      & a{
+        font-size: 6rem;
+        height: 80px;
+        width: 100%;
+        text-decoration: none;
+        color: #000;
+        margin: .4rem 0rem;
+        overflow: hidden;
+      }
+    }
+    form{
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      padding: 0rem ;
+      padding: 1rem 3rem;
+      display: block;
+    }
+    form input{
+      padding: 1.4rem 1rem;
+      margin-bottom: 1rem;
+    }
+    form label{
+      font-size: 1rem;
+    }
+    form button{
+      padding: 1.4rem 0rem;
+    }
+    #login-container h3{
+      padding: 0rem 3rem;
+      font-size: 4rem;
+    }
+    #google-button{
+      width: 80%;
+      height: 4rem;
+    }
+    #google-button i{
+      font-size: 2rem;
+    }
+  }
